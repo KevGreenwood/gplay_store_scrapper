@@ -1,0 +1,10 @@
+name: gplay_store_scrapper
+description: "A Dart library to allow scrapping in Google Play Store"
+version: 0.0.1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  http: ^1.0.0
+  html: ^0.15.0
