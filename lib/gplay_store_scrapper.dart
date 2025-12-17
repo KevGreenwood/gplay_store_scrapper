@@ -6,6 +6,8 @@ import 'package:html/parser.dart';
 
 class Scrapper
 {
+  String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36';
+  String lang = 'en-US,en;q=0.9,es-MX;q=0.8';
   final Duration _timeout = const Duration(seconds: 10);
 
   Future<Map<String, String>> fetchAppDetails(String packageName) async
@@ -16,9 +18,9 @@ class Scrapper
       final response = await client.get(Uri.parse("https://play.google.com/store/apps/details?id=$packageName"),
         headers:
         {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+          'User-Agent': userAgent,
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-          'Accept-Language': 'en-US,en;q=0.9,es-MX;q=0.8',
+          'Accept-Language': lang,
         },
       ).timeout(_timeout);
 
@@ -43,7 +45,7 @@ class Scrapper
         {
         'appName': appName,
         'author': author ?? 'Unknown',
-        'genre': genre ?? 'Unknown',
+        'genre': genre ?? 'None',
         'iconPath': iconPath ?? '',
       };
     }
