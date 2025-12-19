@@ -13,6 +13,6 @@ void main() async
 
   if (result.containsKey('error'))
   {
-    print('Error: ${result['error']}');
+    print(result['error']);
   }
 }
