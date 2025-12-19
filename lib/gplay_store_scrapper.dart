@@ -22,8 +22,7 @@ class Scrapper
           'User-Agent': userAgent,
           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
           'Accept-Language': lang,
-        },
-      ).timeout(_timeout);
+        }).timeout(_timeout);
 
       if (response.statusCode != 200)
       {
@@ -46,7 +45,7 @@ class Scrapper
         {
         'appName': appName,
         'author': author ?? 'Unknown',
-        'genre': genre ?? 'None',
+        'genre': genre ?? 'Unknown',
         'iconPath': iconPath ?? '',
       };
     }
@@ -56,11 +55,11 @@ class Scrapper
     }
     on http.ClientException catch (e)
     {
-      return {'error': 'Network error: ${e.message}'};
+      return {'error': e.message};
     }
     catch (e)
     {
-      return {'error': 'Unexpected error: $e'};
+      return {'error': '$e'};
     }
     finally
     {

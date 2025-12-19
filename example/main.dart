@@ -5,7 +5,7 @@ void main() async
 {
   final scrapper = Scrapper();
 
-  final result = await scrapper.fetchAppDetails('com.spotify.music');
+  final result = await scrapper.fetchAppDetails('in.krosbits.musicolet');
 
   print('App Name: ${result['appName']}');
   print('Author: ${result['author']}');
