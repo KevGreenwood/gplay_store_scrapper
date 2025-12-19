@@ -1,5 +1,6 @@
 import 'package:gplay_store_scrapper/gplay_store_scrapper.dart';
 
+
 void main() async
 {
   final scrapper = Scrapper();
